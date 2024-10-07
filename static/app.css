@@ -62,7 +62,7 @@ form
 }
 #main-navigation nav button 
 {
-    padding: 1em;
+    padding: 0.2em;
     font-family:'poppins';
     background-color: white;
     color: red;
@@ -155,15 +155,15 @@ form
 {
     #main-navigation nav h1
     {
-        font-size: 1.3rem;
+        font-size: 1.1rem;
     }
     #main-navigation nav 
     {
         gap: 0.5em;
     }
-    #main-navigation nav > a
+    #main-navigation nav, #main-navigation button 
     {
-        font-size: 0.8rem;
+        font-size: 0.6rem;
     }
     .anchors
     {

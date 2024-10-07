@@ -217,7 +217,7 @@ class BorrarView(View):
 class SearchView(View):
     def post(self, request):
         search = request.POST['post']
-        busqueda = Post.objects.filter(Q(title__contains = search) | Q(author__username__contains = search ) | Q(tags__caption__contains = search )).distinct()
+        busqueda = Post.objects.filter(Q(title__icontains = search) | Q(author__username__icontains = search ) | Q(tags__caption__icontains = search )).distinct()
         print(busqueda)
         return render(request, "blog_site/search.html", {
             "search":search,
