@@ -1,0 +1,20 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'blog_site/create.css'%}">
+{% endblock %}
+{% block title %}
+Crear post
+{% endblock %}
+{% block body %}
+<h2>Crear Post</h2>
+<p> El contenido del blog debe estar escrito usando markdown, si no sabes usarlo acá te dejamos <a href="https://www.markdownguide.org/cheat-sheet/">una guia.</a></p>
+<form action="{% url 'blog_site:create_post'%}" method="post" class="blog-form" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form}}
+    {% if message %}
+    <h4>{{message}}</h4>
+    {% endif %}
+    <input type="submit" value="Subir blog">
+</form>
+{% endblock %}

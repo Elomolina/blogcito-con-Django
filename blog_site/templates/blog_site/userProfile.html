@@ -1,0 +1,50 @@
+{% extends 'base.html '%}
+{% load static %}
+{% block title %}
+Perfil de usuario
+{% endblock %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'blog_site/userProfile.css'%}">
+{% endblock %}
+{% block body %}
+{% if not user_profile %}
+<h2>Perfil de {{user}}</h2>
+{%else%}
+<h2>Perfil de {{user_profile.user}}</h2>
+{% endif %}
+<main>
+    <section>
+        {% if not user_profile %}
+        <img src="{% static 'blog_site/default_profile.webp'%}">
+        {% else %}
+        <img src="{{user_profile.profile_pic.url}}">
+        <p>{{user_profile.biografia}}</p>
+        {% endif %}
+        {% if cantidad != 0 %}
+        <h4>{{user_profile.user}} ha subido {{cantidad}} posts 😎</h4>
+        {% else %}
+        <h4>{{user_profile.user}} ha subido {{cantidad}} posts 😴</h4>
+        {% endif %}
+        <img src="{% static 'blog_site/winnie.gif'%}">
+    </section>
+    <hr>
+    <section class="user-posts">
+        {% if not user_profile %}
+        <h2>
+            {{user}}'s posts
+        </h2>
+        {% else %}
+        <h2>
+            {{user_profile.user}}'s posts
+        </h2>
+        {% endif%}
+        <div>
+            {% for post in posts %}
+            {% include 'blog_site/includes/post.html'%}
+            {% empty %}
+            <h4>{{user_profile.user}} no ha subido ningun post todavia.</h4>
+            {% endfor %}
+        </div>
+    </section>
+</main>
+{% endblock %}

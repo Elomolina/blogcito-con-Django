@@ -1,0 +1,53 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{%block style %}
+<link rel="stylesheet" href="{% static 'blog_site/post-detail.css'%}">
+{% endblock %}
+{% block title %}
+{% endblock %}
+
+{% block body %}
+<section id="summary">
+    <article>
+    <div>
+        <h2>{{detail_blog.title}}</h2>
+        <h5>Etiquetas: 
+            {% for tag in tags %}
+            <span>{{tag}}</span>
+            {% endfor %}
+        </h5>
+        <form action="{% url 'blog_site:read_later' detail_blog.id detail_blog.slug%}" id="read-later" method="post">
+            {% csrf_token %}
+            <div>
+                {% if detail_blog.id in request.session.save %}
+                <label>Eliminar post del leer más tarde</label>
+                <input type="image" src="{% static 'blog_site/save1.png'%}" id="save">
+                <input type="hidden" name="save" value="save">
+                {% else %}
+                <label>Agregar post al leer más tarde</label>
+                <input type="image" src="{% static 'blog_site/save2.png'%}" id="not_save">
+                <input type="hidden" name="not_save" value="not_save">
+                {% endif %}
+            </div>
+        </form>
+    </div>
+    <div class="address">
+        <img src="{{detail_blog.image_name.url}}" alt="">
+        <address id="author">Escrito por: <a href="{% url 'blog_site:user_profile' detail_blog.author%}"><b>{{detail_blog.author}}</b></a></address>
+        <address>
+            Actualizado el <b><time>{{detail_blog.date.date}}</time></b>
+        </address>
+    </div>
+</article>
+<main>
+    {{content}}
+</main>
+{% if request.user == detail_blog.author %}
+<form action="{% url 'blog_site:borrar' detail_blog.slug%}" id="borrar" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Borrar Post">
+</form>
+{% endif %}
+</section>
+{% endblock %}

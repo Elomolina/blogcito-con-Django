@@ -1,0 +1,243 @@
+#welcome 
+{
+    background-color: #8EACCD; 
+    color: white;  
+    margin: 0;
+    padding: 2em;
+    padding-bottom: 5em;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 1em;
+}
+#welcome header 
+{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    font-size: 1.5rem;
+    color:  rgb(0, 0, 99);
+}
+#welcome p 
+{
+    color: #125B9A;
+    font-weight: bold;
+    width: 30%;
+    padding: 1em;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0,0.2);
+}
+
+#welcome header img
+{
+    border-radius: 20px;
+    border: 5px solid white;
+    transition: 0.5s;
+    width: 300px;
+    height: 250px;
+    transform: rotateZ(-5deg);
+}
+#welcome header h6
+{
+    font-size: 0.8rem;
+    width: 50%;
+    background-color: rgb(108, 108, 108);
+    opacity: 0.7;
+    padding: 0.5em;
+    padding-bottom: 1em;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid rgb(108, 108, 108);
+    border-radius: 20px;
+}
+#welcome header h6 
+{
+    color: white;
+    text-align: center;
+    
+}
+#perfil 
+{
+    color: white;
+    text-align: center;
+    text-decoration: underline;
+    text-align: center;
+    padding: 0.5em;
+}
+#welcome header img:hover 
+{
+    transform: rotateZ(0);
+}
+
+#about 
+{
+    background-color: #0D9276;
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 1em;
+}
+.info
+{
+    
+    width: 40%;
+    padding: 1em;
+}
+.pics 
+{
+    display: grid;
+    grid-template-columns: repeat(2, 250px);
+    grid-template-rows: auto auto;
+    gap: 0;
+}
+#cs50 
+{
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+.pics img 
+{
+    height: 200px;
+    width: 250px;
+}
+.container div
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+li
+{
+    list-style-type:none;
+    padding: 1em;
+    transition: 0.5s;
+    width: 30%;
+    height: 500px;
+    
+}
+li article, li a
+{
+    height: 100%;
+    text-decoration: none;
+    color: rgb(41, 21, 21);
+}
+.post 
+{
+    transition: 1s;
+}
+
+.post:hover 
+{
+    background-color: #769ec9;
+    border-radius: 1em;
+    
+}
+.post div 
+{
+    display: flex;
+    flex-direction: column;
+}
+.post h3, .post p
+{
+    
+    margin: 0;
+}
+.post p 
+{
+    padding: 2em;
+    padding-bottom: 1em;
+}
+.post h3 
+{
+    margin-top: 1em;
+}
+.post img 
+{
+    padding-top: 1em;
+    border-radius: 20px;
+    width: 100px;
+    height: 100px;
+}
+#latest-post
+{
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+.container
+{
+    text-align: center;
+    background-color: white;
+    padding: 0.5em;
+    width: 80%;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0,0.2);
+    border-radius: 20px;
+    position: relative;
+    bottom: 4em;
+}
+
+@media(max-width:1500px)
+{
+    .container div
+    {
+        display: flex;
+        flex-direction: column;
+    }
+    li 
+    {
+        width: 100%;
+        height: fit-content;
+    }
+    .post img 
+    {
+        width: 200px;
+        height: 200px;
+    }
+}
+@media(max-width:800px)
+{
+    #welcome 
+    {
+        flex-direction: column;
+    }
+    #welcome header img 
+    {
+        width: 250px;
+        height: 200px;
+    }
+    #welcome p 
+    {
+        width: 70%;
+    }
+    #about 
+    {
+        flex-direction: column;
+    }
+    #about div 
+    {
+        padding: 1em;
+    }
+    .info 
+    {
+        width: 100%;
+    }
+    .pics 
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1em;
+    }
+}
+@media(max-width:800px)
+{
+    .pics 
+    {
+        flex-direction: column;
+    }
+}

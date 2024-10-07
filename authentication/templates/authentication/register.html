@@ -1,0 +1,34 @@
+{% extends 'authentication/base_auth.html' %}
+{% load static %}
+{% block title %}
+register
+{% endblock %}
+{% block estilo %}
+<link rel="stylesheet" href="{% static 'authentication/register.css'%}">
+{% endblock %}
+{% block frase %}
+¡Bienvenido!
+{% endblock %}
+{% block redireccion %}
+¿Ya tienes cuenta? <a href="{% url 'auth:login'%}">Inicia sesión</a>
+{% endblock %}
+{% block form %}
+<form action="{% url 'auth:register'%}" class="register" method="post">
+    {% csrf_token %}
+    {% for field in form %}
+    <div>
+        <h3>{{field.label}}</h3>
+        {{field}}
+        {% if field.errors %}
+        {% for err in field.errors%}
+        <h4>{{err}}</h4>
+        {% endfor %}
+        {% endif %}
+    </div>
+    {% endfor %}
+    {% if message %}
+    <h3 class="message_h3">{{message}}</h3>
+    {% endif %}
+    <input type="submit" value="Sent">
+</form>
+{% endblock %}

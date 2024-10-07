@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'blog_site/perfil.css'%}">
+{% endblock %}
+{% block title %}
+perfil 
+{% endblock %}
+{% block body %}
+<h2>Configuraciones del perfil</h2>
+<main>
+    <section id="profile_form">
+        <form action="{% url 'blog_site:perfil'%}" id="perfil" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% for fields in form %}
+            <h4>
+                {{fields.label}}
+            </h4>
+            {{fields}}
+            {% if fields.errors %}
+            {% for err in fields.errors %}
+            <h6>
+                {{err}}
+            </h6>
+            {% endfor %}
+            {% endif %}
+            {% endfor %}
+            <input type="submit" value="Actualizar perfil">
+        </form>
+    </section>
+    <section id="profile_now">
+        {% if perfil.profile_pic %}
+        <img src="{{perfil.profile_pic.url}}" alt="">
+        <p>
+            {{perfil.biografia}}
+        </p>
+        {% else %}
+        <img src="{% static 'blog_site/default_profile.webp'%}" alt="">
+        {% if perfil.biografia %}
+        <p> {{perfil.biografia}}</p>
+        {% else %}
+        <p>
+            Escribe una biografia para que otros sepan de ti 😼
+        </p>
+        {% endif %}
+        {% endif %}
+    </section>
+</main>
+{% endblock %}

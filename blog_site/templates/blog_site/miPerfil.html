@@ -1,0 +1,49 @@
+{% extends 'base.html '%}
+{% load static %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'blog_site/miperfil.css'%}">
+{% endblock %}
+{% block title %}
+Mi perfil
+{% endblock %}
+{% block body %}
+<h2>Mi perfil</h2>
+<main>
+    <section>
+        <div class="profile">
+            {% if userProfile %}
+            <img src="{{userProfile.profile_pic.url}}" alt="">
+            <p>{{userProfile.biografia}}</p>
+            {% else %}
+            <img src="{% static 'blog_site/default_profile.webp'%}" alt="">
+            <p>No has escrito una biografia todavia.</p>
+            {% endif %}
+        </div>
+        <div class="content">
+            <h3>Tienes <b>{{guardados}}</b> blogs guardados para leer más tarde.</h3>
+            <div class="posts read_later">
+                {% for post in read_later %}
+                {% include "blog_site/includes/post.html"%}
+                {% empty %}
+                <div class="no-post">
+                    <h4>No has guardado ningún post todavia 😴</h4>
+                    <img src="{% static 'blog_site/snoopy.gif'%}" alt="">
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <hr>
+    <section id="mis-posts">
+        <h3>Mis Posts</h3>
+        <div class="posts">
+            {% for post in posts %}
+            {% include "blog_site/includes/post.html"%}
+            {% empty %}
+            <h3>Todavia no has escrito un blog ☹️.</h3>
+            <h3>Empieza <a href="{% url 'blog_site:create_post'%}">tu primer blog</a> 😁</h3>
+            {% endfor %}
+        </div>
+    </section>
+</main>
+{% endblock %}

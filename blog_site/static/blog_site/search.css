@@ -1,0 +1,54 @@
+h2 
+{
+    margin-left: 1em;
+}
+span 
+{
+    color:rgb(126, 9, 9)
+}
+
+main 
+{
+    margin-left: 1em;
+}
+main section 
+{
+    box-sizing: border-box;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 25%));
+    gap: 1em;
+    margin-bottom: 1.5em;
+}
+li 
+{
+    list-style-type: none;
+}
+article p 
+{
+    display: none;
+}
+div 
+{
+    padding: 1.5em;
+    border-radius: 10px;
+    background-color: #8EACCD;
+    transition: 1s;
+}
+
+div:hover 
+{
+    transform: scale(1.01);
+}
+div a 
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+}
+div img 
+{
+    border-radius: 10px;
+}

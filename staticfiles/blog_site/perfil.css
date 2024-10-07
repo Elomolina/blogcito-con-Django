@@ -1,0 +1,89 @@
+body,
+html {
+    height: 100%;
+}
+
+#perfil {
+    padding: 2em;
+    width: 70%;
+    border: 2px solid grey;
+
+}
+
+#perfil input[type="submit"] {
+    background-color: rgb(178, 178, 178);
+    font-weight: bold;
+    border: 1px solid transparent;
+    color: black;
+    margin-top: 1em;
+}
+
+#perfil textarea {
+    width: 100%;
+}
+
+h2 {
+    margin-left: 1em;
+}
+
+main {
+    height: 70vh;
+    display: flex;
+    align-items: center;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+}
+
+img {
+    width: 300px;
+    height: 300px;
+}
+
+#profile_now {
+    justify-content: center;
+    padding-left: 2em;
+    padding-right: 2em;
+}
+
+#profile_now img {
+    border-radius: 50%;
+}
+
+#profile_now p {
+    text-align: center;
+    line-height: 2em;
+}
+
+@media(max-width: 600px) {
+    main {
+        height: auto;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    section {
+        width: 95%;
+    }
+
+    #profile_now {
+        margin-top: 1em;
+        margin-bottom: 1em;
+        order: 1;
+        padding: 0;
+    }
+
+    #profile_form {
+        order: 2;
+        margin-bottom: 1.5em;
+    }
+
+    img {
+        width: 200px;
+        height: 200px;
+    }
+}

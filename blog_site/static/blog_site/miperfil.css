@@ -1,0 +1,131 @@
+img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+h2 {
+    margin-left: 1em
+}
+
+.profile {
+    margin-left: 1em;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.content h3 {
+    margin-left: 1em;
+    font-weight: 400;
+    font-size: 0.9rem;
+    width: 200px;
+    text-align: center;
+
+}
+
+.content b {
+    color: brown;
+}
+
+main {
+    display: flex;
+    gap: 1em;
+}
+
+main section {
+    width: 50%;
+    padding-top: 1em;
+    margin-top: 1em;
+    border-top: 1px solid grey;
+}
+
+#mis-posts>h3 {
+    margin-left: 1em;
+}
+
+li {
+    list-style-type: none;
+}
+
+li a {
+    text-decoration: none;
+    color: rgb(64, 63, 63);
+    font-size: 0.9rem;
+}
+
+li h3 {
+    width: 50%;
+}
+
+li a div {
+    display: flex;
+    justify-content: center;
+
+}
+
+li article p {
+    display: none;
+}
+
+.posts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1em;
+    text-align: center;
+}
+
+.posts img {
+    padding: 0.3em;
+    background-color: white;
+    transition: 0.5s;
+}
+
+.posts img:hover {
+    background-color: grey;
+}
+
+.read_later {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.read_later a 
+{
+    display: flex;
+    align-items: center;
+}
+.read_later h3 
+{
+    
+    font-size: 1rem;
+    font-weight: bold;
+}
+.read_later img {
+    width: 150px;
+    height: 150px;
+}
+.no-post 
+{
+    width: 100%;
+}
+@media(max-width:600px) {
+    main 
+    {
+        flex-direction: column;
+    }
+    main section 
+    {
+        width: 100%;
+    }
+    .content > h3 
+    {
+        width: 100%;
+        margin: 0;
+        margin-top: 1em;
+        margin-bottom: 1em;
+    }
+
+}

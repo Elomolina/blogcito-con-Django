@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'blog_site/index.css'%}">
+{% endblock %}
+
+{% block title %}
+My blog
+{% endblock %}
+
+{% block body %}
+<section id="welcome">
+    <header>
+        {% if user.is_authenticated and profile_pic%}
+        <img src="{{profile_pic.profile_pic.url}}" alt="foto del hermoso usuario uwus">
+        <h2>{{user}}'s 
+        <br>    
+        blog</h2>
+        {% elif user.is_authenticated and profile_pic is None %}
+        <h6>
+            Agrega una foto de perfil para que otros usuarios te reconozcan👀
+            <br>
+            <a href="" id="perfil">Agregar foto de perfil</a>
+        </h6>
+        <h2>{{user}}'s blog
+        <br>  
+        {% else %}
+        <img src="{% static 'blog_site/yo2.jpeg'%}" alt="elo">
+        <h2>Elo's 
+        <br>    
+        blog</h2>
+        {% endif %}
+    </header>
+    {% if user.is_authenticated %}
+    <p>Hola {{user}}, ¡es tu momento de demostrar tus habilidades como bloguero! Explora de diversos temas o crea blogs interesantes que otros podran leer.</p>
+    {% else %}
+    <p>Hola me llamo Elo 👻, este es mi blog para hablar de temas que me interesan, tu también puedes subir blogs de cosas que te interesan. <br> <a href="{% url 'auth:login'%}">¡Inicia sesión para empezar!</a></p>
+    {% endif %}
+</section>
+<section id="latest-post">
+    <div class="container">
+        <h2>Lo último subido</h2>
+        <div>
+            {% for post in posts %}
+            {% include 'blog_site/includes/post.html'%}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% if not user.is_authenticated %}
+<section id="about">
+    <div class="info">
+        <h2>Un poco de información sobre mi 🤠</h2>
+        <p>Soy estudiante de la carrera de ingeniería en computación en UNI Nicaragua.</p>
+        <p>Empecé a programar en 2021 cuando entre al curso de <a href="https://code-fu.net.ni/">CS50x.ni</a> y desde ese entonces ha sido una de mis mayores pasiones. También he tenido el privilegio de impartir clases en el mismo curso que me enseño la pasión a programar ♥️</p>
+        <p>Cada día intentando ser un poquito mejor que ayer, si me ven en la uni regalenme un cafecito.</p>
+    </div>
+    <div class="pics">
+        <img src="{% static 'blog_site/yo3.jpeg'%}" alt="">
+        <img src="{% static 'blog_site/cs50.jpeg'%}" id="cs50">
+    </div>
+</section>
+{% endif %}
+{% endblock %}

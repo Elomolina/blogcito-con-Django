@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'blog_site/search.css'%}">
+{% endblock %}
+{% block title %}
+Busqueda
+{% endblock %}
+
+{% block body %}
+<h2>Se encontraron <span>{{cantidad}}</span> búsquedas similares a {{search}}</h2>
+<main>
+    <section>
+        {% for post in busquedas %}
+        <div>
+            {% include "blog_site/includes/post.html"%}
+        </div>
+        {% empty %}
+        <h3>No hay coincidencias con {{search}}</h3>
+        {% endfor %}
+    </section>
+</main>
+{% endblock %}

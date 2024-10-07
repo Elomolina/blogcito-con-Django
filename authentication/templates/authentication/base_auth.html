@@ -1,0 +1,36 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'authentication/style.css'%}">
+    {% block estilo %}
+    {% endblock %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock%}</title>
+</head>
+<body>
+    <main>
+        <section class="image-section">
+            <img src="{% static 'authentication/megaphone.png'%}" id="megaphone">
+            <img src="{% static 'authentication/blog3.png'%}" id="girl">
+            <h4>Donde tus ideas cobran vida y tus palabras conectan con el mundo.</h4>
+        </section>
+        <section id="form">
+            <div class="img">
+                <img src="{% static 'authentication/blog-web.png'%}" alt="">
+            </div>
+            <h2>
+                {% block frase %}
+                {% endblock %}
+            </h2>
+            <h6>{% block redireccion%} {% endblock %}</h6>
+            {% block form %}
+            {% endblock %}
+        </section>
+    </main>
+</body>
+</html>
