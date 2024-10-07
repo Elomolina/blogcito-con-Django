@@ -46,7 +46,6 @@ def posts(request):
 class DetailPostView(LoginRequiredMixin,View):
     login_url = reverse_lazy("auth:login")
     def get(self, request, slug):
-        print(request.session.get("save", []))
         detail_blog = Post.objects.get(slug = slug)
         blog_markdown = markdown2.markdown(detail_blog.content)
         blog_markdown = mark_safe(blog_markdown)

@@ -1,6 +1,4 @@
-#summary h2 {
-    margin-left: 1em;
-}
+
 
 main {
     background-color: white;
@@ -69,35 +67,35 @@ span {
     font-weight: bold;
     color: rgb(188, 45, 45);
 }
-#borrar 
-{
+
+#borrar {
     width: 100%;
     padding-top: 0.5em;
     padding-bottom: 2em;
     display: flex;
     justify-content: center;
 }
-#borrar input[type="submit"]
-{
+
+#borrar input[type="submit"] {
     background-color: rgb(111, 4, 4);
     color: white;
     font-family: 'poppins';
     width: 70%;
     transition: 1s;
 }
-#borrar input[type="submit"]:hover 
-{
+
+#borrar input[type="submit"]:hover {
     transform: scale(1.2);
 }
-#read-later 
-{
+
+#read-later {
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 100%;
 }
-#read-later input
-{
+
+#read-later input {
     box-shadow: none;
     border: transparent;
     width: 30px;
@@ -122,15 +120,27 @@ span {
     }
 
     article div {
-        flex-direction: row;
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         gap: 1em;
     }
 
+    article>div {
+        margin: 0;
+        padding: 0;
+    }
+    #read-later 
+    {
+        margin: 0;
+    }
     .address {
+        border-top: 1px solid black;
+        padding-top: 1em;
         flex-direction: column;
-        width: 90%;
-        margin-top: 1em;
-        margin-left: 3em;
+        width: 100%;
+
     }
 
     article img {
